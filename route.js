@@ -21,7 +21,7 @@ route.post('/auth', user.auth);
 route.post('/logout', user.requireLogin, user.logout);
 route.get('/u/:uid', user.requireLogin, validateUid, user.show);
 route.post('/u/:uid', requireOwner, validateUid, user.update);
-route.get('/u/:uid/del', requireOwner, validateUid, user.remove);
+route.get('/u/:uid/del', requireOwnerGroup, validateUid, user.remove);
 route.get('/u', user.requireLogin, user.list);
 route.post('/u', requireOwnerGroup, user.add);
 
