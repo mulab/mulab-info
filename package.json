@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.6.5",
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^6.0.0-beta.1",
     "babel-plugin-bluebird-async-functions": "^1.2.0",
     "babel-plugin-syntax-async-functions": "^6.5.0",
     "babel-plugin-transform-async-to-module-method": "^6.5.2",
