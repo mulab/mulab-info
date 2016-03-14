@@ -26,10 +26,10 @@ route.get('/u/:uid/del', requireOwnerGroup, validateUid, user.remove);
 route.get('/u', user.requireLogin, user.list);
 route.post('/u', requireOwnerGroup, user.add);
 
-route.get('/g/:gid', group.show);
-route.get('/g/:gid/del', group.remove);
-route.post('/g/:gid', group.addMember);
-route.get('/g', group.list);
-route.post('/g', group.add);
+route.get('/g/:gid', user.requireLogin, group.show);
+route.get('/g/:gid/del', requireOwnerGroup, group.remove);
+route.post('/g/:gid', requireOwnerGroup, group.addMember);
+route.get('/g', requireLogin, group.list);
+route.post('/g', requireOwnerGroup, group.add);
 
 export { route };
