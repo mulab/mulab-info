@@ -28,5 +28,6 @@ route.post('/u', requireOwnerGroup, user.add);
 
 route.get('/g/:gid', group.show);
 route.get('/g', group.list);
+route.post('/g', group.add);
 
 export { route };

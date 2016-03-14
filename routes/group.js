@@ -19,7 +19,21 @@ async function list(ctx) {
   ctx.body = result;
 }
 
+async function add(ctx) {
+  let body = ctx.request.body,
+    gid = body.gid,
+    uid = body.uid;
+  try {
+    await client.addGroup({ cn: gid, uid });
+    ctx.redirect(`/g/${gid}`);
+  } catch (err) {
+    ctx.status = 403;
+    ctx.body = { error: err };
+  }
+}
+
 export {
   show,
-  list
+  list,
+  add
 };
