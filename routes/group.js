@@ -44,9 +44,21 @@ async function addMember(ctx) {
   }
 }
 
+async function remove(ctx) {
+  let gid = ctx.params.gid;
+  try {
+    await client.removeGroup(gid);
+    ctx.body = { };
+  } catch (err) {
+    ctx.status = 403;
+    ctx.body = { error: err };
+  }
+}
+
 export {
   show,
   list,
   add,
-  addMember
+  addMember,
+  remove
 };
