@@ -9,7 +9,7 @@ async function show(ctx) {
   } else {
     let entry = result[0].object;
     let groups = [];
-    for (let group of await client.getGroups(uid)) {
+    for (let group of await client.getGroupOfUser(uid)) {
       groups.push(group.object.cn);
     }
     ctx.body = {
@@ -25,7 +25,7 @@ async function list(ctx) {
   for (let entry of await client.list()) {
     let object = entry.object;
     let groups = [];
-    for (let group of await client.getGroups(object.uid)) {
+    for (let group of await client.getGroupOfUser(object.uid)) {
       groups.push(group.object.cn);
     }
     result.push({
@@ -125,7 +125,7 @@ function requireGroup(group) {
   return async function(ctx, next) {
     if (ctx.session.uid) {
       let found = false;
-      for (let entry of await client.getGroups(ctx.session.uid)) {
+      for (let entry of await client.getGroupOfUser(ctx.session.uid)) {
         if (entry.object.cn === group) {
           found = true;
           break;
