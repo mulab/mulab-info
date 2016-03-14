@@ -27,6 +27,7 @@ route.get('/u', user.requireLogin, user.list);
 route.post('/u', requireOwnerGroup, user.add);
 
 route.get('/g/:gid', group.show);
+route.post('/g/:gid', group.addMember);
 route.get('/g', group.list);
 route.post('/g', group.add);
 

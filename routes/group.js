@@ -32,8 +32,21 @@ async function add(ctx) {
   }
 }
 
+async function addMember(ctx) {
+  let gid = ctx.params.gid,
+    uid = ctx.request.body.uid;
+  try {
+    await client.addUserToGroup({ gid, uid });
+    ctx.redirect(`/g/${gid}`);
+  } catch (err) {
+    ctx.status = 403;
+    ctx.body = { error: err };
+  }
+}
+
 export {
   show,
   list,
-  add
+  add,
+  addMember
 };
