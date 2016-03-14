@@ -44,7 +44,7 @@ async function add(ctx) {
     password = body.password;
   if (name && uid && password && uid.match(/[^0-9a-zA-Z]/) === null) {
     try {
-      await client.add({
+      await client.addUser({
         cn: name,
         sn: name,
         uid: uid,
