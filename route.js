@@ -1,5 +1,6 @@
 import router from 'koa-router';
 import * as user from './routes/user';
+import * as group from './routes/group';
 import logger from './lib/log';
 import { ldapConfig } from './config';
 import * as util from './lib/util';
@@ -24,5 +25,7 @@ route.post('/u/:uid', requireOwner, validateUid, user.update);
 route.get('/u/:uid/del', requireOwnerGroup, validateUid, user.remove);
 route.get('/u', user.requireLogin, user.list);
 route.post('/u', requireOwnerGroup, user.add);
+
+route.get('/g/:gid', group.show);
 
 export { route };
