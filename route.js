@@ -27,5 +27,6 @@ route.get('/u', user.requireLogin, user.list);
 route.post('/u', requireOwnerGroup, user.add);
 
 route.get('/g/:gid', group.show);
+route.get('/g', group.list);
 
 export { route };

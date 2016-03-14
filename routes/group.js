@@ -11,6 +11,15 @@ async function show(ctx) {
   }
 }
 
+async function list(ctx) {
+  let result = [];
+  for (let entry of await client.getGroups()) {
+    result.push(entry.object);
+  }
+  ctx.body = result;
+}
+
 export {
-  show
+  show,
+  list
 };
