@@ -21,7 +21,7 @@ async function show(ctx) {
 }
 
 async function list(ctx) {
-  let result = []
+  let result = [];
   for (let entry of await client.list()) {
     let object = entry.object;
     let groups = [];
@@ -78,7 +78,7 @@ async function update(ctx) {
   if (name) {
     await client.update({
       uid: uid,
-      cn: name,
+      cn: name
     });
   } else {
     ctx.status = 304;

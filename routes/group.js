@@ -6,8 +6,7 @@ async function show(ctx) {
     ctx.status = 404;
     ctx.body = { };
   } else {
-    let entry = result[0].object;
-    ctx.body = entry;
+    ctx.body = result[0].object;
   }
 }
 

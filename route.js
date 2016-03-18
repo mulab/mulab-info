@@ -29,7 +29,7 @@ route.post('/u', requireOwnerGroup, user.add);
 route.get('/g/:gid', user.requireLogin, group.show);
 route.get('/g/:gid/del', requireOwnerGroup, group.remove);
 route.post('/g/:gid', requireOwnerGroup, group.addMember);
-route.get('/g', requireLogin, group.list);
+route.get('/g', user.requireLogin, group.list);
 route.post('/g', requireOwnerGroup, group.add);
 
 export { route };
